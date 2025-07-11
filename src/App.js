@@ -401,7 +401,7 @@ const EAAComplianceSurvey = () => {
               href="https://www.ideacto.pl/uslugi/audyt-wcag#contact-heading-anchor"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center"
+              className="bg-gray-800 text-white px-8 py-3 rounded-lg hover:bg-gray-700 transition-colors flex items-center"
             >
               <User className="mr-2" size={20} />
               Skontaktuj się z nami
@@ -534,7 +534,7 @@ const EAAComplianceSurvey = () => {
                     <button
                       type="button"
                       onClick={handleContactSubmit}
-                      className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center disabled:opacity-50"
+                      className="bg-gray-600 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors flex items-center disabled:opacity-50"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
@@ -576,7 +576,7 @@ const EAAComplianceSurvey = () => {
       <div className="mb-6">
         <div className="bg-gray-200 rounded-full h-2">
           <div 
-            className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+            className="bg-gray-800 h-2 rounded-full transition-all duration-300"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
@@ -631,7 +631,7 @@ const EAAComplianceSurvey = () => {
           <button
             onClick={nextStep}
             disabled={!isStepComplete()}
-            className="flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {currentStep === questions.length - 1 ? 'Zobacz wyniki' : 'Następne'}
             <ChevronRight className="ml-2" size={20} />
