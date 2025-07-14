@@ -496,6 +496,24 @@ const EAAComplianceSurvey = () => {
               </h2>
             </div>
 
+            {/* CTA z darmową konsultacją - tylko gdy firma MUSI przestrzegać EAA */}
+            {result.mustComply && (
+              <div className="text-center mb-8">
+                <a
+                  href={language === 'pl' ? 'https://www.ideacto.pl/uslugi/audyt-wcag#contact-heading-anchor' : 'https://www.ideacto.pl/en/uslugi/audyt-wcag#contact-heading-anchor'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center px-8 py-4 text-lg font-semibold rounded-lg transition-colors ${
+                    darkMode 
+                      ? 'bg-blue-700 hover:bg-blue-600 text-white' 
+                      : 'bg-blue-600 hover:bg-blue-700 text-white'
+                  } shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform`}
+                >
+                  🎯 {language === 'pl' ? 'Skontaktuj się z nami w sprawie darmowej konsultacji' : 'Contact us for a free consultation'}
+                </a>
+              </div>
+            )}
+
             <div className="space-y-4">
               <div>
                 <h3 className={`font-semibold text-lg mb-2 ${darkMode ? 'text-white' : 'text-gray-800'}`}>{t.justification}</h3>
@@ -596,7 +614,33 @@ const EAAComplianceSurvey = () => {
                   {t.fundingText}
                 </p>
                 <p className={`${darkMode ? 'text-blue-200' : 'text-blue-700'}`}>
-                  <strong>{t.fundingCta}</strong>
+                  <strong>
+                    {language === 'pl' ? (
+                      <>
+                        Aby uzyskać więcej informacji o dostępnych źródłach finansowania, {' '}
+                        <a 
+                          href="https://www.ideacto.pl/uslugi/audyt-wcag#contact-heading-anchor" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className={`underline ${darkMode ? 'text-blue-300 hover:text-blue-200' : 'text-blue-600 hover:text-blue-800'} transition-colors`}
+                        >
+                          skontaktuj się z nami
+                        </a>.
+                      </>
+                    ) : (
+                      <>
+                        To get more information about available funding sources, {' '}
+                        <a 
+                          href="https://www.ideacto.pl/en/uslugi/audyt-wcag#contact-heading-anchor" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className={`underline ${darkMode ? 'text-blue-300 hover:text-blue-200' : 'text-blue-600 hover:text-blue-800'} transition-colors`}
+                        >
+                          contact us
+                        </a>.
+                      </>
+                    )}
+                  </strong>
                 </p>
               </div>
 
@@ -629,7 +673,7 @@ const EAAComplianceSurvey = () => {
                 {t.retakeSurvey}
               </button>
               <a
-                href="https://www.ideacto.pl/uslugi/audyt-wcag#contact-heading-anchor"
+                href={language === 'pl' ? 'https://www.ideacto.pl/uslugi/audyt-wcag#contact-heading-anchor' : 'https://www.ideacto.pl/en/uslugi/audyt-wcag#contact-heading-anchor'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${darkMode ? 'bg-gray-900 hover:bg-black' : 'bg-black hover:bg-gray-800'} text-white px-8 py-3 rounded-lg transition-colors flex items-center`}
