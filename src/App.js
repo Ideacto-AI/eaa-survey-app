@@ -26,8 +26,8 @@ const EAAComplianceSurvey = () => {
       retakeSurvey: "Wypełnij ankietę ponownie",
       question: "Pytanie",
       of: "z",
-      previous: "Poprzednie",
-      next: "Następne",
+      previous: "Wstecz",
+      next: "Dalej",
       showResults: "Zobacz wyniki",
       disclaimer: "Ta ankieta ma charakter informacyjny. W przypadku wątpliwości skonsultuj się z ekspertami ds. dostępności.",
       fundingTitle: "💰 Dofinansowanie na dostępność",
@@ -619,7 +619,7 @@ const EAAComplianceSurvey = () => {
                       <>
                         Aby uzyskać więcej informacji o dostępnych źródłach finansowania, {' '}
                         <a 
-                          href="https://www.ideacto.pl/uslugi/audyt-wcag#contact-heading-anchor" 
+                          href="https://www.ideacto.pl/uslugi/audyt-wcag" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className={`underline ${darkMode ? 'text-blue-300 hover:text-blue-200' : 'text-blue-600 hover:text-blue-800'} transition-colors`}
@@ -631,7 +631,7 @@ const EAAComplianceSurvey = () => {
                       <>
                         To get more information about available funding sources, {' '}
                         <a 
-                          href="https://www.ideacto.pl/en/uslugi/audyt-wcag#contact-heading-anchor" 
+                          href="https://www.ideacto.pl/en/uslugi/audyt-wcag" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className={`underline ${darkMode ? 'text-blue-300 hover:text-blue-200' : 'text-blue-600 hover:text-blue-800'} transition-colors`}
