@@ -32,7 +32,11 @@ const EAAComplianceSurvey = () => {
         { value: 'telecom', label: 'Telekomunikacja' },
         { value: 'public', label: 'Sektor publiczny' },
         { value: 'other', label: 'Inne' }
-      ]
+      ],
+      tip: {
+        title: "💡 Czy wiesz, że...",
+        content: "Europejski Akt Dostępności (EAA) to przełomowe prawo UE, które od 28 czerwca 2025 roku wymaga dostępności cyfrowej w kluczowych sektorach gospodarki. To największa zmiana w dostępności cyfrowej od dekady!"
+      }
     },
     {
       id: 'companySize',
@@ -44,7 +48,11 @@ const EAAComplianceSurvey = () => {
         { value: 'small', label: 'Małe przedsiębiorstwo (11-50 pracowników)' },
         { value: 'medium', label: 'Średnie przedsiębiorstwo (51-250 pracowników)' },
         { value: 'large', label: 'Duże przedsiębiorstwo (ponad 250 pracowników)' }
-      ]
+      ],
+      tip: {
+        title: "🏢 Korzyść biznesowa",
+        content: "Dostępne strony internetowe zwiększają grono potencjalnych klientów o 15% populacji - osoby z niepełnosprawnościami mają łączną siłę nabywczą ponad 13 bilionów dolarów rocznie!"
+      }
     },
     {
       id: 'annualTurnover',
@@ -56,7 +64,11 @@ const EAAComplianceSurvey = () => {
         { value: '2m-10m', label: '2-10 mln EUR' },
         { value: '10m-50m', label: '10-50 mln EUR' },
         { value: 'over50m', label: 'Powyżej 50 mln EUR' }
-      ]
+      ],
+      tip: {
+        title: "⚖️ Ważna informacja prawna",
+        content: "Mikroprzedsiębiorstwa z obrotami poniżej 2 mln EUR są zwolnione z obowiązku przestrzegania EAA, ale wdrożenie dostępności może dać im przewagę konkurencyjną i przygotować na przyszły rozwój."
+      }
     },
     {
       id: 'serviceType',
@@ -71,7 +83,11 @@ const EAAComplianceSurvey = () => {
         { value: 'banking', label: 'Usługi bankowe online' },
         { value: 'streaming', label: 'Usługi streamingowe' },
         { value: 'communication', label: 'Usługi komunikacyjne' }
-      ]
+      ],
+      tip: {
+        title: "📈 SEO i dostępność",
+        content: "Google uwzględnia dostępność w algorytmach rankingowych! Dostępne strony mają lepsze pozycje w wynikach wyszukiwania, bo są bardziej użyteczne dla wszystkich użytkowników, w tym technologii asystujących."
+      }
     },
     {
       id: 'launchDate',
@@ -82,7 +98,11 @@ const EAAComplianceSurvey = () => {
         { value: 'before2025', label: 'Przed 28 czerwca 2025' },
         { value: 'after2025', label: 'Po 28 czerwca 2025' },
         { value: 'planning', label: 'Planuję uruchomić w przyszłości' }
-      ]
+      ],
+      tip: {
+        title: "📅 Terminy wdrożenia",
+        content: "Usługi uruchomione przed 28 czerwca 2025 mają czas na dostosowanie do 28 czerwca 2030. Nowe usługi muszą być zgodne od momentu uruchomienia. Wczesne wdrożenie daje więcej czasu na optymalizację!"
+      }
     },
     {
       id: 'targetAudience',
@@ -95,7 +115,11 @@ const EAAComplianceSurvey = () => {
         { value: 'public', label: 'Instytucje publiczne' },
         { value: 'elderly', label: 'Osoby starsze' },
         { value: 'disabled', label: 'Osoby z niepełnosprawnościami' }
-      ]
+      ],
+      tip: {
+        title: "👥 Uniwersalny design",
+        content: "Dostępność pomaga wszystkim użytkownikom! Napisy do filmów pomagają w hałaśliwych miejscach, duże przyciski ułatwiają obsługę na telefonie, a prosty język jest zrozumiały dla każdego."
+      }
     },
     {
       id: 'euOperations',
@@ -106,7 +130,11 @@ const EAAComplianceSurvey = () => {
         { value: 'yes', label: 'Tak, głównie w UE' },
         { value: 'partial', label: 'Tak, częściowo w UE' },
         { value: 'no', label: 'Nie, tylko poza UE' }
-      ]
+      ],
+      tip: {
+        title: "🌍 Globalne trendy",
+        content: "Dostępność cyfrowa to globalny trend! Podobne przepisy obowiązują w USA (ADA), Kanadzie (AODA), Australii (DDA) i innych krajach. Wdrożenie WCAG 2.1 AA przygotowuje na ekspansję międzynarodową."
+      }
     }
   ];
 
@@ -401,7 +429,7 @@ const EAAComplianceSurvey = () => {
               href="https://www.ideacto.pl/uslugi/audyt-wcag#contact-heading-anchor"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gray-800 text-white px-8 py-3 rounded-lg hover:bg-gray-700 transition-colors flex items-center"
+              className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center"
             >
               <User className="mr-2" size={20} />
               Skontaktuj się z nami
@@ -534,7 +562,7 @@ const EAAComplianceSurvey = () => {
                     <button
                       type="button"
                       onClick={handleContactSubmit}
-                      className="bg-gray-600 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors flex items-center disabled:opacity-50"
+                      className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center disabled:opacity-50"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
@@ -576,7 +604,7 @@ const EAAComplianceSurvey = () => {
       <div className="mb-6">
         <div className="bg-gray-200 rounded-full h-2">
           <div 
-            className="bg-gray-800 h-2 rounded-full transition-all duration-300"
+            className="bg-blue-600 h-2 rounded-full transition-all duration-300"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
@@ -618,6 +646,16 @@ const EAAComplianceSurvey = () => {
           ))}
         </div>
 
+        {/* Ramka z ciekawostkami */}
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 rounded-lg p-6 mt-8 mb-8">
+          <h3 className="font-semibold text-blue-800 mb-2 flex items-center">
+            <span className="mr-2">{currentQuestion.tip.title}</span>
+          </h3>
+          <p className="text-blue-700 leading-relaxed">
+            {currentQuestion.tip.content}
+          </p>
+        </div>
+
         <div className="flex justify-between mt-8">
           <button
             onClick={prevStep}
@@ -631,7 +669,7 @@ const EAAComplianceSurvey = () => {
           <button
             onClick={nextStep}
             disabled={!isStepComplete()}
-            className="flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {currentStep === questions.length - 1 ? 'Zobacz wyniki' : 'Następne'}
             <ChevronRight className="ml-2" size={20} />
