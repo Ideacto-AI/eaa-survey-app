@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronRight, ChevronLeft, AlertCircle, CheckCircle, ExternalLink, User, Globe, Sun, Moon } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 const EAAComplianceSurvey = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -845,6 +846,7 @@ const EAAComplianceSurvey = () => {
           </p>
         </div>
       </div>
+      <Analytics />
     </div>
   );
 };
