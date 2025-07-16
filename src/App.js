@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronRight, ChevronLeft, AlertCircle, CheckCircle, ExternalLink, User, Globe, Sun, Moon } from 'lucide-react';
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics, track } from '@vercel/analytics/react';
 
 const EAAComplianceSurvey = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -389,7 +389,15 @@ const EAAComplianceSurvey = () => {
     if (currentStep < questions[language].length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      setShowResult(true);
+      // Ankieta zakończona - track event
+      track('survey_completed', {
+        language: language,
+        result: calculateCompliance().mustComply ? 'must_comply' : 'not_must_comply',
+        business_type: answers.businessType,
+        company_size: answers.companySize
+      });
+
+        setShowResult(true);
     }
   };
 
@@ -504,6 +512,7 @@ const EAAComplianceSurvey = () => {
                   href={language === 'pl' ? 'https://www.ideacto.pl/uslugi/audyt-wcag#contact-heading-anchor' : 'https://www.ideacto.pl/en/uslugi/audyt-wcag#contact-heading-anchor'}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => track('cta_free_consultation_click', { language: language, result: result.mustComply ? 'must_comply' : 'not_must_comply' })}
                   className={`inline-flex items-center px-8 py-4 text-lg font-semibold rounded-lg transition-colors ${
                     darkMode 
                       ? 'bg-blue-700 hover:bg-blue-600 text-white' 
@@ -635,6 +644,7 @@ const EAAComplianceSurvey = () => {
                           href="https://www.ideacto.pl/en/uslugi/audyt-wcag" 
                           target="_blank" 
                           rel="noopener noreferrer"
+                          onClick={() => track('funding_link_click', { language: language })}
                           className={`underline ${darkMode ? 'text-blue-300 hover:text-blue-200' : 'text-blue-600 hover:text-blue-800'} transition-colors`}
                         >
                           contact us
@@ -668,7 +678,10 @@ const EAAComplianceSurvey = () => {
           <div className="text-center space-y-4">
             <div className="flex justify-center space-x-4">
               <button
-                onClick={resetSurvey}
+                onClick={() => {
+                  track('survey_retake', { language: language });
+                  resetSurvey();
+                }}
                 className={`${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-600 hover:bg-gray-700'} text-white px-8 py-3 rounded-lg transition-colors`}
               >
                 {t.retakeSurvey}
@@ -677,6 +690,7 @@ const EAAComplianceSurvey = () => {
                 href={language === 'pl' ? 'https://www.ideacto.pl/uslugi/audyt-wcag#contact-heading-anchor' : 'https://www.ideacto.pl/en/uslugi/audyt-wcag#contact-heading-anchor'}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track('contact_us_click', { language: language, location: 'results_page' })}
                 className={`${darkMode ? 'bg-gray-900 hover:bg-black' : 'bg-black hover:bg-gray-800'} text-white px-8 py-3 rounded-lg transition-colors flex items-center`}
               >
                 <User className="mr-2" size={20} />
